@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free short url</title>
+
+
+<script type="text/javascript" src="pako.min.js"></script>
+<script >
+
+
+var test = "www.sss.com";
+
+
+
+var b64Data     = 'eJzLKCkpsNLXLy8v1yvOzEvUS87P1UvO0wcAZQ8IMg==';  
+var ticketData = 'http://www.sina.com.cn/dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaefergbytjhnyujtrgrtgtrhyjrfvadwdwfdre';  
+// Output to console 
+var s = GetQueryString("s");
+if(s){
+	var s = unzip(s);//unzip(b64Data);  
+	//alert("unzipped: "+s);
+	window.location.href=s;
+}
+var url = GetQueryString("url")
+if(url){
+	var data = zip(url); 
+	alert("zipped: "+data);
+}
+
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+function unzip(b64Data){  
+    var strData     = atob(b64Data);  
+      
+    // Convert binary string to character-number array  
+    var charData    = strData.split('').map(function(x){return x.charCodeAt(0);});  
+  
+  
+    // Turn number array into byte-array  
+    var binData     = new Uint8Array(charData);  
+  
+  
+    // // unzip  
+    var data        = pako.inflate(binData);  
+  
+  
+    // Convert gunzipped byteArray back to ascii string:  
+    strData     = String.fromCharCode.apply(null, new Uint16Array(data));  
+    return strData;  
+}  
+  
+  
+function zip(str){  
+    var binaryString = pako.deflate(str, { to: 'string' });  
+      
+    return btoa(binaryString);  
+}  
+alert(restored);
+</script>
+
+</body></html>
