@@ -1,4 +1,4 @@
-# fsurl
+# free short url
 zip the url
 https://fsurl.github.io/?url=weibo.com
 
