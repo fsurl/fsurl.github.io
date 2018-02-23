@@ -4,22 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>free short url</title>
-
-
+    <body >free short url</body>
 <script type="text/javascript" src="pako.min.js"></script>
 <script >
-
-
-
-
-
-
-//var b64Data  = 'eJzLKCkpsNLXLy8v1yvOzEvUS87P1UvO0wcAZQ8IMg==';  
-//var ticketData = 'http://www.sina.com.cn/';  
+ 
 // Output to console 
 var s = GetQueryString("s");
 if(s){
-	var s = unzip(s);//unzip(b64Data);  
+	var s = unzip(s); 
 	//alert("unzipped: "+s);
 	window.location.href=s;
 }
